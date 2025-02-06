@@ -13,6 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class TrianguloUI extends javax.swing.JFrame {
 
+    /*
+    cd C:\\Users\\20221074010050\\Documents\\NetBeansProjects\\DaviFelipe
+    git add . 
+    git commit -m "mensagem"
+    git push -u origin main
+    
+    
+    
     /**
      * Creates new form TrianguloUI
      */
