@@ -5,6 +5,7 @@
 package ui_TRJ;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +18,7 @@ public class TrianguloUI extends javax.swing.JFrame {
      */
     public TrianguloUI() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -52,6 +54,11 @@ public class TrianguloUI extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Triângulos");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jSeparator1.setForeground(new java.awt.Color(0, 204, 204));
 
@@ -193,7 +200,21 @@ public class TrianguloUI extends javax.swing.JFrame {
     
     
     private void calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcActionPerformed
-        double a = Double.parseDouble(jTextField1.getText());
+        
+        if (jTextField1.getText() .equals("") 
+            || jTextField2.getText() .equals("")
+            || jTextField3.getText() .equals(""))
+        
+        JOptionPane.showMessageDialog(
+                null,
+                "Preencha todos os lados!",
+                "ERRO",
+                JOptionPane.ERROR_MESSAGE
+        );
+        
+        else{
+        
+            double a = Double.parseDouble(jTextField1.getText());
         double b = Double.parseDouble(jTextField2.getText());
         double c = Double.parseDouble(jTextField3.getText());
         
@@ -208,9 +229,17 @@ public class TrianguloUI extends javax.swing.JFrame {
             tipoLabel.setForeground(Color.red);
             areaLabel.setText("");
         }
-
+        }
 
     }//GEN-LAST:event_calcActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+      jTextField1.setText("");
+      jTextField2.setText("");
+      jTextField3.setText("");
+      tipoLabel.setText("Tipo = ?");
+      tipoLabel.setForeground(Color.black);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
